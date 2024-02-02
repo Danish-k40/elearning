@@ -124,29 +124,40 @@
 
 
             <!-- Modal -->
-            {{-- <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
                 tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 
-                    <div class="modal-dialog">
-                        <div class="modal-content"> --}}
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="staticBackdropLabel">Login</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Login</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <form class="form-horizontal" action="{{ route('register') }}" method="POST">
+                            @csrf
                             <div class="modal-body">
-                                <form class="form-horizontal" action="{{ route('register') }}" method="POST">
+                                {{-- <form class="form-horizontal" action="{{ route('register') }}" method="POST">
                                     @csrf
                                     <div class="mb-3">
                                         <label for="exampleInputEmail1" class="form-label">Email address</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp">
-                                        <div id="emailHelp" class="form-text">We'll never share your email with anyone
-                                            else.</div>
+                                        <input type="email" name="email" class="form-control" id="exampleInputEmail1">
+
                                     </div>
+
+                                    <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Name</label>
+                                        <input type="text" name="name" class="form-control" id="exampleInputEmail1">
+
+                                    </div>
+
                                     <div class="mb-3">
                                         <label for="exampleInputPassword1" class="form-label">Password</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1">
+                                        <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleInputPassword1" class="form-label">password_confirmation</label>
+                                        <input type="password" name="password_confirmation" class="form-control" id="exampleInputPassword1">
                                     </div>
                                     <a href="">create an account</a>
 
@@ -154,17 +165,60 @@
                                         <button class="btn btn-primary waves-effect waves-light" type="submit">Log
                                             In</button>
                                     </div>
-                                </form>
+                                </form> --}}
+
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                    <input type="email" name="email" class="form-control" id="exampleInputEmail1">
+                                    @error('email')
+                                        <span class="text-danger">
+                                            {{ $message }}
+                                        </span>
+                                    @enderror
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">Name</label>
+                                    <input type="text" name="name" class="form-control"
+                                        id="exampleInputEmail1">
+                                    @error('name')
+                                        <span class="text-danger">
+                                            {{ $message }}
+                                        </span>
+                                    @enderror
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                                    <input type="password" name="password" class="form-control"
+                                        id="exampleInputPassword1">
+                                    @error('password')
+                                        <span class="text-danger">
+                                            {{ $message }}
+                                        </span>
+                                    @enderror
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword1"
+                                        class="form-label">password_confirmation</label>
+                                    <input type="password" name="password_confirmation" class="form-control"
+                                        id="exampleInputPassword1">
+                                    @error('password_confirmation')
+                                        <span class="text-danger">
+                                            {{ $message }}
+                                        </span>
+                                    @enderror
+                                </div>
+                                <a href="">create an account</a>
                             </div>
                             <div class="modal-footer">
                                 <button type="submit" class="btn btn-primary">Login</button>
                             </div>
-                        {{-- </div>
+                        </form>
                     </div>
+                </div>
             </div>
-
-
-        </div> --}}
+        </div>
 
 
     </section><!-- End Popular Courses Section -->

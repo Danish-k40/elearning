@@ -15,6 +15,8 @@ class HomeController extends Controller
 
     public function index()
     {
+        Auth::guard('web')->logout();
+
         $courses = $this->homeServices->getCourses()['result'] ?? [];
         return view('home', compact('courses'));
     }
